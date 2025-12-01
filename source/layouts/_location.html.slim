@@ -1,0 +1,68 @@
+/ Hotel Location Section
+section#hotel-location.hotel-location.section
+  .container data-aos="fade-up" data-aos-delay="100"
+
+    / Main Location Content
+    .row.align-items-center.mb-5
+
+      / Location Details
+      .col-lg-6.order-2.order-lg-1 data-aos="fade-right" data-aos-delay="200"
+        .location-content
+          .location-badge
+            i.bi.bi-geo-alt-fill
+            span Prime Location
+          h2.location-title Luxury Downtown Experience
+          p.location-description Located in the heart of New Baneshwor, Kathmandu, our hotel offers easy access to key business hubs, shopping centers, and cultural landmarks. Guests can enjoy a vibrant neighborhood with restaurants, cafes, and convenient transport options, all within walking distance.
+
+          .info-grid
+            .info-item
+              .info-icon
+                i.bi.bi-building
+              .info-text
+                h6 Address
+                p
+                  = data.info.address
+                  br
+                  = data.info.address2
+
+            .info-item
+              .info-icon
+                i.bi.bi-airplane
+              .info-text
+                h6 Airport Access
+                p
+                  | Bike - 20 min
+                  br
+                  | Taxi - 30 min
+
+            .info-item
+              .info-icon
+                i.bi.bi-telephone
+              .info-text
+                h6 Contact
+                p
+                  = data.info.phone
+                  br
+                  = data.info.email
+
+            .info-item
+              .info-icon
+                i.bi.bi-clock
+              .info-text
+                h6 Check-in
+                p
+                  | 12:00 PM - 11:00 PM
+                  br
+                  | Check-out: 11:59 AM
+
+          .action-buttons
+            a.btn.btn-primary href="#" View on Map
+            a.btn.btn-outline href="#" Book Now
+
+      / Interactive Map
+      .col-lg-6.order-1.order-lg-2 data-aos="fade-left" data-aos-delay="300"
+        .map-container
+          iframe src=data.info.map_embed frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
+          .map-overlay
+            .hotel-marker
+              i.bi.bi-building = data.info.name
