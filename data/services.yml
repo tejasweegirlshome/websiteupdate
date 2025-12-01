@@ -1,32 +1,46 @@
 - "✅ Core Services":
-    - Lodging / Rooms
-    - Fooding (Breakfast, Lunch, Dinner)
-    - Laundry
-    - Housekeeping & Room Cleaning
-    - Hot & Cold Water
-    - Electricity Backup / Inverter
-    - High-speed Wi-Fi / Internet
-    - Attached / Shared Bathroom Facilities
-- "✅ Safety & Security":
-    - 24/7 Security Guard
-    - CCTV Surveillance
-    - Secure Entrance / Smart Lock
-    - Emergency Contact Support
-- "✅ Comfort & Daily Living":
-    - Drinking Water (RO/Filtered)
-    - Closet / Wardrobe
-    - Study Table & Chair
-    - Common TV Room / Lounge
-    - Shared Kitchen Access
-    - Parking Space (Scooter/Bicycle)
-- "✅ Additional / Premium Services":
-    - Pickup & Drop (Optional)
-    - Printing / Photocopy
-    - Meal Customization
-    - Room Heater (seasonal)
-    - AC Rooms (seasonal)
-- "❇️ Add-on Services for Better Marketing":
-    - Hygienic & Homely Environment
-    - Peaceful Study Environment
-    - Female-only Staff
-    - Nearby Bus Stops / Colleges
+    desc: 'A comfortable living space is the foundation of a good hostel experience, and our rooms are designed with that in mind. We offer single, double, and triple-sharing rooms that are spacious, well-ventilated, and furnished with essential items such as a bed, mattress, wardrobe, study table, and chair. Each room is thoughtfully arranged to provide privacy, convenience, and a peaceful atmosphere for studying and resting. Regular maintenance ensures rooms remain clean, hygienic, and cozy throughout the stay.'
+    items:
+      - "🛏️ Lodging / Rooms"
+      - "🍽️ Fooding (Breakfast, Lunch, Dinner)"
+      - "🧺 Laundry"
+      - "🧹 Housekeeping & Room Cleaning"
+      - "💧 Hot & Cold Water"
+      - "🔌 Electricity Backup / Inverter"
+      - "🌐 High-speed Wi-Fi / Internet"
+      - "🚿 Attached / Shared Bathroom Facilities"
+
+- "🛡️ Safety & Security":
+    desc: "The hostel is monitored 24/7 with high-definition CCTV cameras installed at all key areas, ensuring a safe and transparent environment. Main entrances use smart locks with access cards/codes, and all rooms have strong, reliable locks to ensure privacy and controlled entry."
+    items:
+      - "👮‍♀️ 24/7 Security Guard"
+      - "📹 CCTV Surveillance"
+      - "🔒 Secure Entrance / Smart Lock"
+      - "📞 Emergency Contact Support"
+
+- "🛋️ Comfort & Daily Living":
+    desc: "Residents enjoy a range of daily comforts including 24/7 RO-filtered drinking water, spacious closets and wardrobes, a dedicated study table and chair in every room, a shared TV lounge for relaxation and socializing, access to a clean and well-equipped kitchen for light cooking or reheating, and secure parking spaces for scooters and bicycles within the hostel premises."
+    items:
+      - "💧 Drinking Water (RO/Filtered)"
+      - "👗 Closet / Wardrobe"
+      - "🪑 Study Table & Chair"
+      - "📺 Common TV Room / Lounge"
+      - "🍳 Shared Kitchen Access"
+      - "🛵 Parking Space (Scooter/Bicycle)"
+
+- "🌟 Additional / Premium Services":
+    desc: "These premium offerings are designed to enhance convenience and comfort for residents. Services include optional pickup and drop, printing and photocopy facilities, customized meal plans, seasonal room heaters, and air-conditioned room options. Each service aims to provide a flexible, comfortable, and personalized living experience."
+    items:
+      - "🚗 Pickup & Drop (Optional)"
+      - "🖨️ Printing / Photocopy"
+      - "🥗 Meal Customization"
+      - "🔥 Room Heater (seasonal)"
+      - "❄️ AC Rooms (seasonal)"
+
+- "✨ Add-on Services":
+    desc: "These add-on services are designed to enhance comfort, convenience, and overall experience for residents. They include maintaining a hygienic and homely environment, providing a peaceful study atmosphere, having female-only staff for added comfort, and ensuring easy access to nearby bus stops and educational institutions."
+    items:
+      - "🏡 Hygienic & Homely Environment"
+      - "📚 Peaceful Study Environment"
+      - "👩 Female-only Staff"
+      - "🚌 Nearby Bus Stops / Colleges"
