@@ -46,6 +46,7 @@
         <i class="bi bi-phone d-flex align-items-center ms-4"><span>+977-9841787270</span></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
+        <a href="https://wa.me/9779841787270?text=hello" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
         <a href="https://www.tiktok.com/@tejasweegirlshome" class="tiktok"><i class="bi bi-tiktok"></i></a>
         <a href="https://www.facebook.com/p/Tejaswee-Girls-Home-Pvt-Ltd-61550042383421/" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="https://www.instagram.com/tejasweegirlshome/reels/" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -134,9 +135,9 @@
                     </div>
                     <div class="form-group">
                       <label for="guest-count" class="form-label">Total Guests</label>
-                      <select class="form-select" id="guest-count" name="guest_count" required="">
+                      <select class="form-select" id="guest-count" name="guest_count">
                         <option value="">Choose guests</option>
-                        <option value="1">1 Guest</option>
+                        <option value="1" selected>1 Guest</option>
                         <option value="2">2 Guests</option>
                         <option value="3">3 Guests</option>
                         <option value="4">4 Guests</option>
@@ -145,9 +146,9 @@
                     </div>
                     <div class="form-group">
                       <label for="room-count" class="form-label">Total Rooms</label>
-                      <select class="form-select" id="room-count" name="room_count" required="">
+                      <select class="form-select" id="room-count" name="room_count">
                         <option value="">Choose rooms</option>
-                        <option value="1">1 Room</option>
+                        <option value="1" selected>1 Room</option>
                         <option value="2">2 Rooms</option>
                         <option value="3">3 Rooms</option>
                         <option value="4">4+ Rooms</option>
@@ -162,11 +163,10 @@
                     <label for="accommodation-type" class="form-label">Accommodation Type</label>
                     <select class="form-select" id="accommodation-type" name="accommodation_type">
                       <option value="">No preference</option>
-                      <option value="classic">Classic Room</option>
-                      <option value="premium">Premium Room</option>
-                      <option value="junior-suite">Junior Suite</option>
-                      <option value="luxury-suite">Luxury Suite</option>
-                      <option value="penthouse">Penthouse Suite</option>
+                        <option value="Room With Single Bed" selected>Room With Single Bed</option>
+                        <option value="Room With 2 Beds" >Room With 2 Beds</option>
+                        <option value="Room With 3 Beds" >Room With 3 Beds</option>
+                        <option value="Room With 3 Beds - Attached Bathroom" >Room With 3 Beds - Attached Bathroom</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -184,11 +184,11 @@
                     </div>
                     <div class="form-group">
                       <label for="contact-email" class="form-label">Email Address</label>
-                      <input type="email" class="form-control" id="contact-email" name="contact_email" required="">
+                      <input type="email" class="form-control" id="contact-email" name="contact_email">
                     </div>
                     <div class="form-group">
                       <label for="contact-phone" class="form-label">Contact Number</label>
-                      <input type="tel" class="form-control" id="contact-phone" name="contact_phone" required="">
+                      <input type="tel" class="form-control" id="contact-phone" name="contact_phone">
                     </div>
                   </div>
                 </div>
@@ -206,7 +206,7 @@
 
           <div class="hotel-showcase" data-aos="fade-left" data-aos-delay="400">
             <div class="showcase-image">
-              <img src="assets/img/hotel/showcase-1.webp" alt="Hotel luxury showcase" class="img-fluid">
+              <img src="/assets/images/filter-exterior-3.jpg" alt="Hotel luxury showcase" class="img-fluid">
             </div>
 
             <div class="hotel-highlights">
@@ -277,7 +277,47 @@
 
 </main>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // set default value of today's date for arrival date input
+        //arrival-date
+        dateInputFrom = document.getElementById("arrival-date");
+        dateInputTo = document.getElementById("departure-date");
+        if (dateInputFrom) {
+            const today = new Date().toISOString().split("T")[0];
+            const after2Days = new Date();
+            after2Days.setDate(after2Days.getDate() + 2);
+            const after2DaysStr = after2Days.toISOString().split("T")[0];
+            dateInputFrom.value = today;
+            dateInputTo.value = after2DaysStr;
+        }
 
+        const form = document.querySelector(".reservation-form");
+        if (!form) return;
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const data = new FormData(form);
+            let msgLines = [];
+
+            data.forEach((value, key) => {
+                if (value.trim() !== "") {
+                    let label = key.replace(/_/g, " ");
+                    label = label.charAt(0).toUpperCase() + label.slice(1);
+                    msgLines.push(`${label}: ${value}`);
+                }
+            });
+
+            const message = encodeURIComponent(msgLines.join("\n"));
+
+            const phone = "9779841787270";
+            const url = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+
+            window.open(url, "_blank");
+        });
+    });
+</script>
 <footer id="footer" class="footer position-relative dark-background">
 
   <div class="footer-top">
@@ -344,6 +384,7 @@
       </div>
 
       <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+        <a href="https://wa.me/9779841787270?text=hello" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
         <a href="https://www.tiktok.com/@tejasweegirlshome" class="tiktok"><i class="bi bi-tiktok"></i></a>
         <a href="https://www.facebook.com/p/Tejaswee-Girls-Home-Pvt-Ltd-61550042383421/" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="https://www.instagram.com/tejasweegirlshome/reels/" class="instagram"><i class="bi bi-instagram"></i></a>
