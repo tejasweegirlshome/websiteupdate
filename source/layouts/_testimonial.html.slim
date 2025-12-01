@@ -1,0 +1,23 @@
+section#testimonials.testimonials.section.light-background
+
+  / Section Title
+  .container.section-title data-aos="fade-up"
+    span.description-title Testimonials
+    h2 Testimonials
+    p See what our guests have to say about us.
+
+  .container data-aos="fade-up" data-aos-delay="100"
+    .testimonials-wrapper
+      .row.g-4
+        - data.testimonials.each do |t_data|
+          .col-lg-6 data-aos="fade-up" data-aos-delay="200"
+            .testimonial-card
+              .quote-mark
+                i.bi.bi-quote
+              .testimonial-content
+                = t_data['review']
+              .testimonial-author
+                img.img-fluid.rounded-circle src= t_data['image'] alt="Client" loading="lazy"
+                .author-info
+                  h4 = t_data['name']
+                  span = t_data['title']
