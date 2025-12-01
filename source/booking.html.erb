@@ -47,9 +47,9 @@ layout: default
                     </div>
                     <div class="form-group">
                       <label for="guest-count" class="form-label">Total Guests</label>
-                      <select class="form-select" id="guest-count" name="guest_count" required="">
+                      <select class="form-select" id="guest-count" name="guest_count">
                         <option value="">Choose guests</option>
-                        <option value="1">1 Guest</option>
+                        <option value="1" selected>1 Guest</option>
                         <option value="2">2 Guests</option>
                         <option value="3">3 Guests</option>
                         <option value="4">4 Guests</option>
@@ -58,9 +58,9 @@ layout: default
                     </div>
                     <div class="form-group">
                       <label for="room-count" class="form-label">Total Rooms</label>
-                      <select class="form-select" id="room-count" name="room_count" required="">
+                      <select class="form-select" id="room-count" name="room_count">
                         <option value="">Choose rooms</option>
-                        <option value="1">1 Room</option>
+                        <option value="1" selected>1 Room</option>
                         <option value="2">2 Rooms</option>
                         <option value="3">3 Rooms</option>
                         <option value="4">4+ Rooms</option>
@@ -75,11 +75,9 @@ layout: default
                     <label for="accommodation-type" class="form-label">Accommodation Type</label>
                     <select class="form-select" id="accommodation-type" name="accommodation_type">
                       <option value="">No preference</option>
-                      <option value="classic">Classic Room</option>
-                      <option value="premium">Premium Room</option>
-                      <option value="junior-suite">Junior Suite</option>
-                      <option value="luxury-suite">Luxury Suite</option>
-                      <option value="penthouse">Penthouse Suite</option>
+                      <%- data.rooms.each_with_index do |room, i| %>
+                        <option value="<%= room.title %>" <%= i==0 ? "selected" : '' %>><%= room.title %></option>
+                      <% end %>
                     </select>
                   </div>
                   <div class="form-group">
@@ -97,11 +95,11 @@ layout: default
                     </div>
                     <div class="form-group">
                       <label for="contact-email" class="form-label">Email Address</label>
-                      <input type="email" class="form-control" id="contact-email" name="contact_email" required="">
+                      <input type="email" class="form-control" id="contact-email" name="contact_email">
                     </div>
                     <div class="form-group">
                       <label for="contact-phone" class="form-label">Contact Number</label>
-                      <input type="tel" class="form-control" id="contact-phone" name="contact_phone" required="">
+                      <input type="tel" class="form-control" id="contact-phone" name="contact_phone">
                     </div>
                   </div>
                 </div>
@@ -119,7 +117,7 @@ layout: default
 
           <div class="hotel-showcase" data-aos="fade-left" data-aos-delay="400">
             <div class="showcase-image">
-              <img src="assets/img/hotel/showcase-1.webp" alt="Hotel luxury showcase" class="img-fluid">
+              <img src="/assets/images/filter-exterior-3.jpg" alt="Hotel luxury showcase" class="img-fluid">
             </div>
 
             <div class="hotel-highlights">
@@ -190,3 +188,44 @@ layout: default
 
 </main>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // set default value of today's date for arrival date input
+        //arrival-date
+        dateInputFrom = document.getElementById("arrival-date");
+        dateInputTo = document.getElementById("departure-date");
+        if (dateInputFrom) {
+            const today = new Date().toISOString().split("T")[0];
+            const after2Days = new Date();
+            after2Days.setDate(after2Days.getDate() + 2);
+            const after2DaysStr = after2Days.toISOString().split("T")[0];
+            dateInputFrom.value = today;
+            dateInputTo.value = after2DaysStr;
+        }
+
+        const form = document.querySelector(".reservation-form");
+        if (!form) return;
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const data = new FormData(form);
+            let msgLines = [];
+
+            data.forEach((value, key) => {
+                if (value.trim() !== "") {
+                    let label = key.replace(/_/g, " ");
+                    label = label.charAt(0).toUpperCase() + label.slice(1);
+                    msgLines.push(`${label}: ${value}`);
+                }
+            });
+
+            const message = encodeURIComponent(msgLines.join("\n"));
+
+            const phone = "<%= data.info.wa_phone %>";
+            const url = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+
+            window.open(url, "_blank");
+        });
+    });
+</script>
