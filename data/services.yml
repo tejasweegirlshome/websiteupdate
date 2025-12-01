@@ -1,5 +1,6 @@
 - name: "✅ Core Services"
-  banner:
+  icon: "bi-house-door"
+  banner: "https://images.unsplash.com/photo-1623625434462-e5e42318ae49?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0"
   desc: "
           A comfortable living space is the foundation of a good hostel experience, and our rooms are designed with that in mind. 
           <br><br>We offer single, double, and triple-sharing rooms that are spacious, well-ventilated, and furnished with essential items such as a bed, mattress, wardrobe, study table, and chair.
@@ -16,6 +17,8 @@
     - "🚿 Attached / Shared Bathroom Facilities"
 
 - name: "🛡️ Safety & Security"
+  icon: "bi-shield-lock"
+  banner: "https://plus.unsplash.com/premium_photo-1749620630783-b712411d81a6?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.1.0"
   desc: "The hostel is monitored 24/7 with high-definition CCTV cameras installed at all key areas, ensuring a safe and transparent environment. 
         <br><br>Main entrances use smart locks with access cards/codes, and all rooms have strong, reliable locks to ensure privacy and controlled entry."
   items:
@@ -25,6 +28,8 @@
     - "📞 Emergency Contact Support"
 
 - name: "🛋️ Comfort & Daily Living"
+  icon: "bi-ui-checks-grid"
+  banner: "https://plus.unsplash.com/premium_photo-1670426501224-5fb879e5a8af?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0"
   desc: "Residents enjoy a range of daily comforts including 24/7 RO-filtered drinking water, spacious closets and wardrobes, a dedicated study table and chair in every room, a shared TV lounge for relaxation and socializing, access to a clean and well-equipped kitchen for light cooking or reheating, and secure parking spaces for scooters and bicycles within the hostel premises."
   items:
     - "💧 Drinking Water (RO/Filtered)"
@@ -35,6 +40,8 @@
     - "🛵 Parking Space (Scooter/Bicycle)"
 
 - name: "🌟 Additional / Premium Services"
+  icon: "bi-gem"
+  banner: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80"
   desc: "
         These premium offerings are designed to enhance convenience and comfort for residents. 
         <br>Services include optional pickup and drop, printing and photocopy facilities, customized meal plans, seasonal room heaters, and air-conditioned room options. 
@@ -47,6 +54,8 @@
     - "❄️ AC Rooms (seasonal)"
 
 - name: "✨ Add-on Services"
+  icon: "bi-stars"
+  banner: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"
   desc: "
           These add-on services are designed to enhance comfort, convenience, and overall experience for residents. 
           They include maintaining a hygienic and homely environment, providing a peaceful study atmosphere, having female-only staff for added comfort, and ensuring easy access to nearby bus stops and educational institutions."

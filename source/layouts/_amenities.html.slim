@@ -2,17 +2,18 @@ section#amenities-cards.amenities-cards.section
   .container.section-title[data-aos="fade-up"]
     span.description-title Amenities
     h2 Amenities
-    p Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+    p Experience comfort and convenience with our thoughtfully designed amenities, crafted to make your stay enjoyable and hassle-free. From well-furnished rooms and high-speed Wi-Fi to 24/7 security and housekeeping, every detail is taken care of to ensure a safe, relaxing, and productive environment for all residents.
 
   .container[data-aos="fade-up" data-aos-delay="100"]
     .row.g-5
-      - data.services.each do |s_data|
+      - range = defined?(item_count) ? (0..(item_count-1)) : (0..-1)
+      - data.services[range].each do |s_data|
         .col-lg-4.col-md-6[data-aos="fade-up" data-aos-delay="100"]
           .facility-card
             .facility-image
-              img.img-fluid src="/assets/img/hotel/amenities-1.webp" alt="Wireless Internet"
+              img.img-fluid src=s_data['banner'] alt=s_data['name']
               .facility-overlay
-                i.bi.bi-wifi
+                i.bi class=s_data['icon']
             .facility-info
               h4 = s_data['name']
               p = s_data['desc']
