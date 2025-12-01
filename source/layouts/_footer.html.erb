@@ -25,19 +25,16 @@
             <li><a href="#">Privacy policy</a></li>
           </ul>
         </div>
-        <%- data.services[0..1].each do |d| %>
-          <%- d.each do |name, service_data| %>
-            <div class="col-lg-3 col-md-3 footer-links">
-              <h4><%= name %></h4>
-              <ul>
-                <%- service_data['items']&.each do |service| %>
-                  <li><a href="/amenities"><%= service %></a></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
+        <%- data.services[0..1].each do |service_hash| %>
+          <div class="col-lg-3 col-md-3 footer-links">
+            <h4><%= service_hash['name'] %></h4>
+            <ul>
+              <%- service_hash['items']&.each do |service| %>
+                <li><a href="/amenities"><%= service %></a></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-
       </div>
     </div>
   </div>
