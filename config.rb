@@ -68,10 +68,10 @@ end
 config[:host] = "https://tejasweegirlshome.com.np"
 configure :build do
   # Minify CSS on build
-  activate :minify_css
+  # activate :minify_css
 
   # Minify Javascript on build
-  activate :minify_javascript
+  # activate :minify_javascript
 end
 
 # move all html files to separate folders with index.html in it
