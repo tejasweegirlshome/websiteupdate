@@ -3047,6 +3047,7 @@ section,
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
+  max-height: 200px;
 }
 
 .gallery-showcase .gallery-item:hover {
@@ -5315,6 +5316,7 @@ section,
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   cursor: pointer;
+  max-height: 400px;
 }
 
 .gallery .gallery-item .gallery-wrapper:hover {

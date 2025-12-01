@@ -1,0 +1,41 @@
+---
+layout: default
+---
+main.main
+  / Page Title
+  .page-title.light-background
+    .container.d-lg-flex.justify-content-between.align-items-center
+      h1.mb-2.mb-lg-0 Gallery
+      nav.breadcrumbs
+        ol
+          li
+            a href="index.html" Home
+          li.current Gallery
+  section#gallery.gallery.section
+    .container data-aos="fade-up" data-aos-delay="100"
+      .isotope-layout data-default-filter="*" data-layout="masonry" data-sort="original-order"
+        ul.hotel-filters.isotope-filters data-aos="fade-up" data-aos-delay="100"
+          li.filter-active data-filter="*" All Photos
+          li data-filter=".filter-rooms" Rooms
+          li data-filter=".filter-amenities" Amenities
+          li data-filter=".filter-dining" Dining
+          li data-filter=".filter-exterior" Exterior
+
+        .row.gy-4.isotope-container data-aos="fade-up" data-aos-delay="200"
+          - Dir.glob('source/assets/images/**/*.{jpg,mp4}').each do |path|
+            - ext = File.extname(path).downcase
+            - file_name = File.basename(path, File.extname(path))
+            - file_desc = file_name.titleize
+            - tag = file_name.scan(/filter-(.+)-/).flatten[0]
+            div class="col-lg-4 col-md-6 gallery-item isotope-item filter-#{tag}"
+              div class="gallery-wrapper"
+                - if [".jpg", ".jpeg", ".png", ".webp"].include?(ext)
+                  - img_path = path.sub('source/', '/')
+                  img.img-fluid src=img_path alt=file_desc loading="lazy"
+                  a.gallery-overlay.glightbox href=img_path
+                    i.bi.bi-eye
+                - elsif [".mp4", ".mov", ".avi"].include?(ext)
+                  - img_path = path.sub('source/', '/')
+                  video.img-fluid src=img_path alt=file_desc loading="lazy" autoplay=false muted=true loop=true
+                  a.gallery-overlay.glightbox href=img_path
+                    i.bi.bi-eye

@@ -1,0 +1,52 @@
+section#gallery-showcase.gallery-showcase.section
+  .container(data-aos="fade-up" data-aos-delay="100")
+    .gallery-carousel.swiper.init-swiper(data-aos="fade-up" data-aos-delay="200")
+      script[type="application/json" class="swiper-config"]
+        |
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 3000
+            },
+            "slidesPerView": 1,
+            "spaceBetween": 20,
+            "centeredSlides": true,
+            "breakpoints": {
+              "576": {
+                "slidesPerView": 2,
+                "centeredSlides": false
+              },
+              "768": {
+                "slidesPerView": 3,
+                "centeredSlides": false
+              },
+              "992": {
+                "slidesPerView": 4,
+                "centeredSlides": false
+              },
+              "1200": {
+                "slidesPerView": 5,
+                "centeredSlides": false
+              }
+            }
+          }
+      .swiper-wrapper
+        - Dir.glob('source/assets/images/**/*.{jpg,mp4}').each do |path|
+          .swiper-slide
+            .gallery-item
+              - ext = File.extname(path).downcase
+              - if [".jpg", ".jpeg", ".png", ".webp"].include?(ext)
+                - img_path = path.sub('source/', '/')
+                img.img-fluid src=img_path alt="Luxurious Suite" loading="lazy"
+                a.gallery-overlay.glightbox href=img_path
+                  i.bi.bi-eye
+              - elsif [".mp4", ".mov", ".avi"].include?(ext)
+                - img_path = path.sub('source/', '/')
+                video.img-fluid src=img_path alt="Luxurious Suite" loading="lazy" autoplay=true muted=true loop=true
+                a.gallery-overlay.glightbox href=img_path
+                  i.bi.bi-eye
+    .text-center.mt-5(data-aos="fade-up" data-aos-delay="300")
+      a.btn.btn-gallery href="/gallery.html"
+        i.bi.bi-collection.me-2
+        | Discover Our Full Gallery
