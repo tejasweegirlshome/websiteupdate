@@ -1,0 +1,60 @@
+section#hotel-hero.hotel-hero.section
+  .container data-aos="fade-up" data-aos-delay="100"
+    .row.gy-4.align-items-center
+      .col-lg-6 data-aos="fade-right" data-aos-delay="200"
+        .hero-content
+          h1 Comfort & Safety Redefined for Every Girl
+          p.lead Our girls’ hostel offers a safe, welcoming, and comfortable environment where young women can live, study, and grow with confidence. Modern amenities, caring staff, and a supportive community ensure every resident feels at home
+          .hero-features
+            .feature-item
+              i.bi.bi-wifi
+              span Wifi
+            .feature-item
+              i.bi.bi-cup-hot
+              span Food
+            .feature-item
+              i.bi.bi-basket
+              span Laundry
+            .feature-item
+              i.bi.bi-phone
+              span 24/7 Room Service
+          .hero-buttons
+            a.btn.btn-primary href="/booking" Book Now
+            a.btn.btn-outline href="/rooms" View Rooms
+
+      .col-lg-6 data-aos="fade-left" data-aos-delay="300"
+        .hero-images
+          .main-image
+            img.img-fluid src="/assets/images/hostel-front-pic.jpg" alt="Luxury Hostel"
+          .floating-card data-aos="zoom-in" data-aos-delay="400"
+            - testimonial = data.testimonials[rand(data.testimonials.count - 1)]
+
+            .card-content
+              .rating
+                - testimonial.star.times do
+                  i.bi.bi-star-fill
+              h6 Exceptional Experience
+
+              p = testimonial.review
+              .guest-info
+                img.guest-avatar src=testimonial.image alt="Guest"
+                span = testimonial.name
+
+    .hero-stats data-aos="fade-up"
+      .row.text-center
+        .col-md-3.col-6
+          .stat-item
+            span.stat-number.purecounter data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" 150
+            span.stat-label Luxury Rooms
+        .col-md-3.col-6
+          .stat-item
+            span.stat-number.purecounter data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" 5
+            span.stat-label Star Rating
+        .col-md-3.col-6
+          .stat-item
+            span.stat-number.purecounter data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" 24
+            span.stat-label Hour Service
+        .col-md-3.col-6
+          .stat-item
+            span.stat-number.purecounter data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="1" 98
+            span.stat-label Guest Satisfaction
