@@ -61,7 +61,11 @@ end
 # Helpers
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
-
+helpers do
+  def wa_link(msg)
+    "https://wa.me/#{data.info.wa_phone}?text=#{URI::DEFAULT_PARSER.escape(msg)}"
+  end
+end
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
