@@ -1,0 +1,74 @@
+- img: '/assets/img/hotel/room-6.webp'
+  title: 'Room With Single Bed'
+  desc: 'A cozy and comfortable single room designed for solo travelers or students. Equipped with modern amenities, a work-friendly space, and beautiful city views, it offers a perfect blend of relaxation and productivity.'
+  tags:
+    - icon: 'bi-people'
+      name: Max 2 People
+    - icon: 'bi-house'
+      name: 12m²
+    - icon: 'bi-geo-alt'
+      name: Top Floor
+  features:
+    - icon: 'bi-briefcase'
+      name: 'Work Space'
+    - icon: 'bi-building'
+      name: 'City Views'
+    - icon: 'bi-wifi'
+      name: 'Free Wifi'
+    - icon: 'bi-basket'
+      name: 'Free Laundry'
+  price:
+    night:
+      - [रु, 2000]
+      - [$, 15]
+    month:
+      - [रु, 20000]
+      - [$, 150]
+
+- img: 'https://media.istockphoto.com/id/642054744/photo/the-interior-of-a-small-room-with-two-beds.jpg?s=612x612&w=0&k=20&c=GL1tsw9xbs9uImH_Wg5RJSH2obZCkaV7Vyk2uZPJwtE='
+  title: 'Room With 2 Beds'
+  desc: 'Spacious room with two beds, perfect for friends or colleagues. Modern amenities and a cozy work area ensure a comfortable stay.'
+  features:
+    - icon: 'bi-briefcase'
+      name: 'Work Space'
+    - icon: 'bi-building'
+      name: 'City Views'
+  price:
+    night:
+      - [रु, 1500]
+      - [$, 12]
+    month:
+      - [रु, 15000]
+      - [$, 130]
+
+- img: 'https://5.imimg.com/data5/ZJ/BL/VW/SELLER-50725794/hostel-room-set.jpg'
+  title: 'Room With 3 Beds'
+  desc: 'Spacious room with three beds, ideal for friends, family, or colleagues. Comes with modern amenities, a work-friendly area, and a comfortable environment for a relaxing stay.'
+  features:
+    - icon: 'bi-tree'
+      name: 'Garden View'
+    - icon: 'bi-door-open'
+      name: 'Private Terrace'
+  price:
+    night:
+      - [रु, 1500]
+      - [$, 11]
+    month:
+      - [रु, 14000]
+      - [$, 120]
+
+- img: 'https://5.imimg.com/data5/ZJ/BL/VW/SELLER-50725794/hostel-room-set.jpg'
+  title: 'Room With 3 Beds - Attached Bathroom'
+  desc: 'Spacious room with three beds and a private attached bathroom, perfect for families or groups. Includes modern amenities, a cozy work area, and a comfortable environment for a relaxing stay.'
+  features:
+    - icon: 'bi-people'
+      name: 'Family Space'
+    - icon: 'bi-controller'
+      name: 'Kids Area'
+  price:
+    night:
+      - [रु, 2000]
+      - [$, 15]
+    month:
+      - [रु, 20000]
+      - [$, 150]

@@ -1,0 +1,138 @@
+section#rooms-showcase.rooms-showcase.section
+  / Section Title
+  .container.section-title data-aos="fade-up"
+    span.description-title Rooms
+    h2 Rooms
+    p Discover our thoughtfully designed rooms that combine comfort, safety, and style. Whether you prefer a cozy private room or a spacious suite, each room is equipped with modern amenities, secure facilities, and a welcoming ambiance to make your stay enjoyable and stress-free. Perfect for students, working professionals, or travelers, our rooms provide the ideal environment for rest, study, and relaxation.
+  - main_room = data.rooms.first
+  .container data-aos="fade-up" data-aos-delay="100"
+    .row.gy-5
+      / Hero Room
+      .col-xl-8 data-aos="zoom-in" data-aos-delay="200"
+        .hero-room-showcase
+          .showcase-image-container
+            img.img-fluid src=main_room.img alt=main_room.title
+            .room-category-badge
+              span = main_room.title
+            .room-details-overlay
+              .room-specs
+                - main_room.tags.each do |tag|
+                  span.spec-item
+                    i.bi class=tag.icon
+                    span = tag.name
+          .showcase-content
+            .room-title-section
+              h2 = main_room.title
+              .room-rating
+                .stars
+                  i.bi.bi-star-fill
+                  i.bi.bi-star-fill
+                  i.bi.bi-star-fill
+                  i.bi.bi-star-fill
+                  i.bi.bi-star-fill
+                span.rating-text 5.0 Excellence
+            p.room-description = main_room.desc
+            .amenities-grid
+              - main_room.features.each do |feature|
+                .amenity-item
+                  i.bi class=feature.icon
+                  span = feature.name
+            .booking-section
+              .price-display
+                - prices = main_room.price.night
+                - prices.each_with_index do |price, i|
+                  span.currency = price[0]
+                  span.amount = price[1]
+                  - unless i == prices.length - 1
+                    span.amount
+                      |/
+                span.period per night
+              .price-display
+                - prices = main_room.price.month
+                - prices.each_with_index do |price, i|
+                  span.currency = price[0]
+                  span.amount = price[1]
+                  - unless i == prices.length - 1
+                    span.amount
+                      |/
+                span.period per month
+              a.primary-booking-btn href="/booking" Reserve
+
+      / Standard Rooms List
+      .col-xl-4
+        .room-list-container
+          - rooms = data.rooms[1..3]
+          - rooms.each_with_index do |room, idx|
+            .standard-room-card data-aos="slide-left" data-aos-delay="#{250 + idx * 50}"
+              .card-image
+                img.img-fluid src=room[:img] alt=room[:title]
+                .view-link
+                  i.bi.bi-arrow-up-right
+              .card-content
+                h4= room[:title]
+                p= room[:desc]
+                .features-list
+                  - room[:features].each do |feature|
+                    span
+                      i(class="bi #{feature.icon}")
+                      | #{feature.name}
+                .price-display
+                  - prices = room.price.night
+                  - prices.each_with_index do |price, i|
+                    span.currency = price[0]
+                    span.amount = price[1]
+                    - unless i == prices.length - 1
+                      span.amount
+                        |/
+                  span.period
+                    | per night
+                  br
+                .booking-row
+                  .price-display
+                    - prices = room.price.month
+                    - prices.each_with_index do |price, i|
+                      span.currency = price[0]
+                      span.amount = price[1]
+                      - unless i == prices.length - 1
+                        span.amount
+                          |/
+                    span.period
+                      | per month
+                  a.book-link href="/booking" Book
+
+    / Minimal Room Cards
+    .row.mt-6
+      - minimal_rooms = data.rooms[4..-1]
+      - minimal_rooms.each_with_index do |room, idx|
+        .col-lg-3.col-sm-6 data-aos="fade-up" data-aos-delay="#{400 + idx * 50}"
+          .minimal-room-card
+            .room-image
+              img.img-fluid src=room[:img] alt=room[:title]
+              .hover-overlay
+                a.view-room href="/booking"
+                  i.bi.bi-eye
+            .room-summary
+              h5= room[:title]
+              .price-display
+                - prices = room.price.night
+                - prices.each_with_index do |price, i|
+                  span.currency = price[0]
+                  span.amount = price[1]
+                  - unless i == prices.length - 1
+                    span.amount
+                      |/
+                span.period
+                  | per night
+              .price-display
+                - prices = room.price.month
+                - prices.each_with_index do |price, i|
+                  span.currency = price[0]
+                  span.amount = price[1]
+                  - unless i == prices.length - 1
+                    span.amount
+                      |/
+                span.period
+                  | per month
+              .basic-amenities
+                - room[:features].each do |feature|
+                  i(class="bi #{feature.icon}")
