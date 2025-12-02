@@ -1,43 +1,13 @@
+<%= partial 'layouts/location' %>
 <section id="contact" class="contact section">
-  <%= partial 'layouts/location' %>
-
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <!-- Contact Info -->
-    <div class="row g-4 mb-5" data-aos="fade-up" data-aos-delay="300">
-      <div class="col-md-6">
-        <div class="contact-info-card">
-          <div class="icon-box">
-            <i class="bi bi-geo-alt"></i>
-          </div>
-          <div class="info-content">
-            <h4>Location</h4>
-            <p>482 Pine Street, Seattle, Washington 98101</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="contact-info-card">
-          <div class="icon-box">
-            <i class="bi bi-telephone"></i>
-          </div>
-          <div class="info-content">
-            <h4>Phone &amp; Email</h4>
-            <p>+1 (206) 555-0192</p>
-            <p>connect@example.com</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Contact Form -->
     <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="200">
       <div class="col-lg-10">
         <div class="contact-form-wrapper">
           <h2 class="text-center mb-4">Send a Message</h2>
 
-          <form action="forms/contact.php" method="post" class="php-email-form">
+          <form action="" method="post" class="php-email-form">
             <div class="row g-3">
               <div class="col-md-6">
                 <div class="form-group">
@@ -65,7 +35,7 @@
 
               <div class="col-12">
                 <div class="loading">Loading</div>
-                <div class="error-message"></div>
+<!--                <div class="error-message"></div>-->
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
 
@@ -79,5 +49,31 @@
     </div>
 
   </div>
+  <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const form = document.querySelector(".php-email-form");
+          if (!form) return;
 
+          form.addEventListener("submit", function (e) {
+              e.preventDefault();
+
+              const data = new FormData(form);
+              let msgLines = [];
+
+              data.forEach((value, key) => {
+                  if (value.trim() !== "") {
+                      let label = key.replace(/_/g, " ");
+                      label = label.charAt(0).toUpperCase() + label.slice(1);
+                      msgLines.push(`${label}: ${value}`);
+                  }
+              });
+
+              const message = encodeURIComponent(msgLines.join("\n"));
+              const phone = "<%= data.info.wa_phone %>";
+
+              const url = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+              window.open(url, "_blank");
+          });
+      });
+  </script>
 </section><!-- /Contact Section -->
