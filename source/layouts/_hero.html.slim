@@ -27,8 +27,7 @@ section#hotel-hero.hotel-hero.section
           .main-image
             img.img-fluid src="/assets/images/filter-exterior-2.jpg" alt=data.info.name
           .floating-card data-aos="zoom-in" data-aos-delay="400"
-            - testimonial = data.testimonials[rand(data.testimonials.count - 1)]
-
+            - testimonial = data.testimonials.select{|x| x.country != 'Nepal' }.sample
             .card-content
               .rating
                 - testimonial.star.times do
