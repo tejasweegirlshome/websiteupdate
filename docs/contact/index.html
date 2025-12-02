@@ -42,8 +42,12 @@
   <div class="topbar d-flex align-items-center dark-background">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:tejasweegirlshome@gmail.com">tejasweegirlshome@gmail.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+977-9841787270</span></i>
+        <i class="bi bi-send-fill d-flex align-items-center"><a href="mailto:tejasweegirlshome@gmail.com">tejasweegirlshome@gmail.com</a></i>
+
+        <i class="bi bi-phone d-flex align-items-center ms-4">
+          <a href="https://wa.me/9779841787270?text=hello" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+          <span>+977-9841787270</span>
+        </i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
         <a href="https://wa.me/9779841787270?text=hello" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
@@ -104,46 +108,16 @@
   </div><!-- End Page Title -->
 
   <!-- Contact Section -->
-  <section id="contact" class="contact section">
   <section class="hotel-location section" id="hotel-location"><div class="container" data-aos="fade-up" data-aos-delay="100"><div class="row align-items-center mb-5"><div class="col-lg-6 order-2 order-lg-1" data-aos="fade-right" data-aos-delay="200"><div class="location-content"><div class="location-badge"><i class="bi bi-geo-alt-fill"></i><span>Prime Location</span></div><h2 class="location-title">Luxury Downtown Experience</h2><p class="location-description">Located in the heart of New Baneshwor, Kathmandu, our hotel offers easy access to key business hubs, shopping centers, and cultural landmarks. Guests can enjoy a vibrant neighborhood with restaurants, cafes, and convenient transport options, all within walking distance.</p><div class="info-grid"><div class="info-item"><div class="info-icon"><i class="bi bi-building"></i></div><div class="info-text"><h6>Address</h6><p>Suruchi Marg, New Baneshwor<br />Bagmati, Kathmandu 44600</p></div></div><div class="info-item"><div class="info-icon"><i class="bi bi-airplane"></i></div><div class="info-text"><h6>Airport Access</h6><p>Bike - 20 min<br />Taxi - 30 min</p></div></div><div class="info-item"><div class="info-icon"><i class="bi bi-telephone"></i></div><div class="info-text"><h6>Contact</h6><p>+977-9841787270<br />tejasweegirlshome@gmail.com</p></div></div><div class="info-item"><div class="info-icon"><i class="bi bi-clock"></i></div><div class="info-text"><h6>Check-in</h6><p>12:00 PM - 11:00 PM<br />Check-out: 11:59 AM</p></div></div></div><div class="action-buttons"><a class="btn btn-primary" href="https://maps.app.goo.gl/dZ3bDHk1p3SeZhcY9">View on G-Map</a><a class="btn btn-outline" href="/booking">Book Now</a></div></div></div><div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="300"><div class="map-container"><iframe allowfullscreen="" frameborder="0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.984200336691!2d85.33589599999999!3d27.6868832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19359b5176c7%3A0xbcbf63e05ce69bfc!2sTejaswee%20Girls%20Home%20Pvt.%20Ltd.!5e0!3m2!1sen!2snp!4v1764571566398!5m2!1sen!2snp">)</iframe><div class="map-overlay"><div class="hotel-marker"><i class="bi bi-building">Tejaswee Girls Home</i></div></div></div></div></div></div></section>
-
+<section id="contact" class="contact section">
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-    <!-- Contact Info -->
-    <div class="row g-4 mb-5" data-aos="fade-up" data-aos-delay="300">
-      <div class="col-md-6">
-        <div class="contact-info-card">
-          <div class="icon-box">
-            <i class="bi bi-geo-alt"></i>
-          </div>
-          <div class="info-content">
-            <h4>Location</h4>
-            <p>482 Pine Street, Seattle, Washington 98101</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="contact-info-card">
-          <div class="icon-box">
-            <i class="bi bi-telephone"></i>
-          </div>
-          <div class="info-content">
-            <h4>Phone &amp; Email</h4>
-            <p>+1 (206) 555-0192</p>
-            <p>connect@example.com</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Contact Form -->
     <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="200">
       <div class="col-lg-10">
         <div class="contact-form-wrapper">
           <h2 class="text-center mb-4">Send a Message</h2>
 
-          <form action="forms/contact.php" method="post" class="php-email-form">
+          <form action="" method="post" class="php-email-form">
             <div class="row g-3">
               <div class="col-md-6">
                 <div class="form-group">
@@ -171,7 +145,7 @@
 
               <div class="col-12">
                 <div class="loading">Loading</div>
-                <div class="error-message"></div>
+<!--                <div class="error-message"></div>-->
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
 
@@ -185,7 +159,33 @@
     </div>
 
   </div>
+  <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const form = document.querySelector(".php-email-form");
+          if (!form) return;
 
+          form.addEventListener("submit", function (e) {
+              e.preventDefault();
+
+              const data = new FormData(form);
+              let msgLines = [];
+
+              data.forEach((value, key) => {
+                  if (value.trim() !== "") {
+                      let label = key.replace(/_/g, " ");
+                      label = label.charAt(0).toUpperCase() + label.slice(1);
+                      msgLines.push(`${label}: ${value}`);
+                  }
+              });
+
+              const message = encodeURIComponent(msgLines.join("\n"));
+              const phone = "9779841787270";
+
+              const url = `https://api.whatsapp.com/send?phone=${phone}&text=${message}`;
+              window.open(url, "_blank");
+          });
+      });
+  </script>
 </section><!-- /Contact Section -->
 
 
