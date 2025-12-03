@@ -2,8 +2,60 @@ require 'pry'
 require 'json'
 
 module Helper
+  def save_response_to_file(text)
+    File.open('dump.json', 'w') do |file|
+      file.write(text)
+    end
+  end
+
   def get_reviews
-    @@response = `
+    data = if File.size?('dump.json')
+             file_content = File.read('dump.json')
+             JSON.parse(file_content)
+           else
+             d = fetch_reviews
+             save_response_to_file(d.to_json)
+             d
+           end
+
+    # Main review array: data[2]
+    reviews_raw = data[2]
+
+    reviews_raw.map do |entry|
+      next unless entry.is_a?(Array)
+      author_block = entry.flatten.compact
+      next unless author_block
+
+      name = author_block[5] rescue nil
+      date = author_block[17] rescue nil
+      image = author_block[6] rescue nil
+      text = author_block[25] rescue nil
+      link = author_block[5] rescue nil
+      rating = author_block[23] rescue nil
+
+      text = nil if text.scan(/.+\/.+?/).any?
+
+      {
+        name: name,
+        rating: rating,
+        date: date,
+        text: wrap(text),
+        image: image,
+        link: link
+      }
+    end.compact
+  end
+
+  def wrap(text, line_width = 180)
+    return text unless text
+
+    text = text[0..line_width]
+    text << '...' if text.length > line_width
+    text
+  end
+
+  def fetch_reviews
+    response = `
     curl $'https://www.google.com/maps/rpc/listugcposts?authuser=0&hl=en&gl=np&pb=\u00211m6\u00211s0x39eb19359b5176c7%3A0xbcbf63e05ce69bfc\u00216m4\u00214m1\u00211e1\u00214m1\u00211e3\u00212m2\u00211i10\u00212s\u00215m2\u00211smNcvaYHtH5WO4-EPp6q9gAQ\u00217e81\u00218m9\u00212b1\u00213b1\u00215b1\u00217b1\u002112m4\u00211b1\u00212b1\u00214m1\u00211e1\u002111m7\u00211e3\u00212e1\u00215m2\u00211s\u00214e1\u00216m1\u00211i2\u002113m1\u00211e1' \
       -H 'accept: */*' \
       -H 'accept-language: en-GB,en;q=0.9' \
@@ -25,41 +77,6 @@ module Helper
       -H 'x-browser-year: 2025' \
       -H 'x-maps-diversion-context-bin: CAE='
     `
-    data = JSON.parse(@@response[4..-1])
-
-    # Main review array: data[2]
-    reviews_raw = data[2]
-
-    reviews_raw.map do |entry|
-      next unless entry.is_a?(Array)
-      author_block =  entry.flatten.compact
-      next unless author_block
-
-      name  = author_block[5] rescue nil
-      date  = author_block[17] rescue nil
-      image  = author_block[6] rescue nil
-      text  = author_block[25] rescue nil
-      link  = author_block[5] rescue nil
-      rating  = author_block[23] rescue nil
-
-      text = nil if text.scan(/.+\/.+?/).any?
-
-      {
-        name: name,
-        rating: rating,
-        date: date,
-        text: wrap(text),
-        image: image,
-        link: link
-      }
-    end.compact
-  end
-
-  def wrap(text, line_width = 180)
-    return text unless text
-
-    text = text[0..line_width]
-    text << '...' if text.length > line_width
-    text
+    JSON.parse(response[4..-1])
   end
 end
