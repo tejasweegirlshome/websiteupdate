@@ -10,7 +10,11 @@
           <div class="footer-contact pt-3">
             <p><%= data.info.address %></p>
             <p><%= data.info.address2 %></p>
-            <p class="mt-3"><strong>Phone:</strong> <span><%= data.info.phone %></span></p>
+            <p class="mt-3">
+              <strong>Phone:</strong> <a class="text-white" href="tel:<%= data.info.phone %>"><%= data.info.phone %></a>
+              <a href="<%= wa_link('hello') %>" class="whatsapp text-white"><i class="bi bi-whatsapp"></i></a>
+            </p>
+
             <p><strong>Email:</strong> <span><%= data.info.email %></span></p>
           </div>
         </div>
@@ -46,8 +50,10 @@
         <div>
           © Copyright <strong><span><%= data.info.name %></span></strong>. All Rights Reserved
         </div>
-        <div class="credits">
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        <div class="credits text-start">
+          Theme Based On <a class="text-white" href="https://bootstrapmade.com/">BootstrapMade</a>
+          <br>
+          Developed by <a class="text-white" href="https://github.com/shivabhusal">Shiva B.</a>
         </div>
       </div>
 

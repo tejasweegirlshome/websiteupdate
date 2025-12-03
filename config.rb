@@ -1,3 +1,4 @@
+require 'helper'
 # Activate and configure extensions
 # https://middlemanapp.com/advanced/configuration/#configuring-extensions
 
@@ -62,6 +63,7 @@ end
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
 helpers do
+  include Helper
   def wa_link(msg)
     "https://wa.me/#{data.info.wa_phone}?text=#{URI::DEFAULT_PARSER.escape(msg)}"
   end

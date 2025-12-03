@@ -7,7 +7,7 @@
 
         <i class="bi bi-phone d-flex align-items-center ms-4">
           <a href="<%= wa_link('hello') %>" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
-          <span><%= data.info.phone %></span>
+          <a href="tel:<%= data.info.phone %>"><%= data.info.phone %></a>
         </i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
@@ -37,8 +37,7 @@
           <li><a href="/location">Location</a></li>
           <li class="dropdown"><a href="#"><span>Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="/room-details">Room Details</a></li>
-              <li><a href="/restaurant">Restaurant</a></li>
+              <li><a href="/rooms">Room Details</a></li>
               <li><a href="/gallery">Gallery</a></li>
               <li><a href="/booking">Booking</a></li>
             </ul>

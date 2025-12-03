@@ -3828,6 +3828,11 @@ section,
   font-size: 18px;
 }
 
+.google-reviews .stars {
+  color: #ffc107;
+  font-size: 18px;
+}
+
 .room-details .room-rating .stars i {
   margin-right: 2px;
 }
